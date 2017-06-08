@@ -1,1 +1,1 @@
-# SampleShopwareProject
+#Sample Shopware Project
