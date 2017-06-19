@@ -10,21 +10,12 @@ services:
 
   shopware:
     image: mspittka/shopware
-    environment:
-     - SHOPWAREBUILD_GIT_REPO=https://github.com/shopware/shopware.git
-     - SHOPWAREBUILD_DB_HOST=db
-     - SHOPWAREBUILD_DB_NAME=shopware
-     - SHOPWAREBUILD_DB_USER=root
-     - SHOPWAREBUILD_DB_PASSWORD=shopware
-     - SHOPWAREBUILD_DB_PORT=3306
-     - SHOPWAREBUILD_APP_PATH=
-     - SHOPWAREBUILD_APP_HOST=shopwaredemo.in
-     - SHOPWAREBUILD_ANT_TARGET=build-unit
-     - SHOPWAREBUILD_DEMO_ZIP=http://releases.s3.shopware.com/test_images.zip
     volumes:
      - webvolume:/var/www/html
      - ./config/apache-site.conf:/etc/apache2/sites-available/000-default.conf
      - ./log/apache2:/var/log/apache2
+     - ./log/build:/var/log/build
+     - ./config/build.sh:/build.sh
     links:
      - shopwaredb:db
     ports:
@@ -38,7 +29,7 @@ services:
     volumes:
      - dbvolume:/root/dbvolume
      - webvolume:/root/webvolume
-   
+
 volumes:
    webvolume:
    dbvolume:
