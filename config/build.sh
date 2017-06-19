@@ -12,7 +12,7 @@ SHOPWAREBUILD_DEMO_ZIP="http://releases.s3.shopware.com/test_images.zip"
 
 
 if [ ! -e /var/www/html/shopware.php ]; then
-    "Shopware not found, installing...\n"
+    printf "Shopware not found, installing...\n"
     rm -f /var/www/html/index.html
 	git clone $SHOPWAREBUILD_GIT_REPO /var/www/html
 printf "%s\t%s\n" "$(date)" "Configuring Build properties..."
