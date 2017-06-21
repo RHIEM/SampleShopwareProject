@@ -11,6 +11,9 @@ Nach dem Checkout des Beispielprojektes muss in der Konsole in das Projektverzei
 # Dienste Starten
 docker-compose up - d
 
+# Build ausführen (bei gestarteter Maschine)
+docker-compose exec shopware sh build.sh
+
 # Dienste stoppen
 docker-compose stop
 
